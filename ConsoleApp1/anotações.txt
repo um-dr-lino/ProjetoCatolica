@@ -1,0 +1,69 @@
+Processos de Software
+Modelos de processos de Software
+
+ClienteV = Usuario            <- |
+ClienteC = Regra de negócio   <- |
+Clientem = Cuida dos dados <> ClientezDTO (Date transfer Object)
+
+
+Uma empresa possui vários temas de festas infantis para aluguel 
+Ela precisa controlar os aluguéis e para isso quer uma aplicação que permita cadastrar:
+nome e o telefone do cliente
+endereço data, hora inicio, hora hrFim
+Alem disso, para alguns clientes antigos, a empresa oferece descontos. Sendo assim, é preciso saber o valor realmente cobrado de um determinado aluguel
+Para cada tema, é preciso controlar:
+- a lista de itens que compoe o tema
+    - castelo
+    - barbie
+O valor do aluguel
+
+
+
+
+
+
+
+
+
+Edicarsia
+--===================--
+    - Cliente  
+- nome: string
+- telefone: int
+- dtCadastro: date
+- endereco: string
+- histAluguel: <list>
+________________________
++ cadastrarCliente()
++ cliAntigo()
+--===================--
+
+
+    - Tema
+- nome: string
+- itens: <list> []
+- valor: float
+- corToalha: string
+- disponibilidade: boolean
+________________________
++ alugar()
++ addTemas()
++ disponibilizar()
++ addItens()
++ ajustarValor()
+
+
+--===================--
+    -Festa
+- data: date
+- valor: float
+- hrInicio: time
+- hrFim: time
+- endCompleto: string
+- cliente: string
+- qtdConvidados: int
+________________________
++ aplicarDesconto()
++ alugar()
++ reservar()
++ alterarlocacao()
