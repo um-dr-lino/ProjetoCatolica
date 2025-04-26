@@ -13,7 +13,12 @@ public class Tela{
 
     
     //metodo para preparar a tela 
-
+    public void prepararTela(){
+        Console.ForegroundColor = corTexto;
+        Console.BackgroundColor = corFundo;
+        Console.Clear();
+        this.desenhaMoldura(0,0,this.largura,this.altura);
+    }
 
     //--====metodo para desenhar molduras===--//
     /*O primeiro elemento sempre é a coluna e o segundo sempre é a linha*/

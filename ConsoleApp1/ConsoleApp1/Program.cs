@@ -1,4 +1,4 @@
-﻿Tela tela = new Tela(80,25,ConsoleColor.Green, ConsoleColor.Yellow);
+﻿Tela tela = new Tela(70,15,ConsoleColor.Black, ConsoleColor.Yellow);
 int opcao;
 
 
@@ -8,8 +8,6 @@ while(true){
     Usuario escolhe uma opção
     executar a opção escolhida na classe cliente
     */
-    tela.desenhaMoldura(0,0,79,24);
-    tela.desenhaMoldura(1,1,15,10);
-    tela.desenhaMoldura(17,5,70,20);
+    tela.prepararTela();
     Console.ReadKey();
 }
