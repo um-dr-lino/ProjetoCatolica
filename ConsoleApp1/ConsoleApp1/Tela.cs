@@ -15,13 +15,14 @@ public class Tela
     }
 
 
-    public void prepararTela(string titulo = "")
+    public void prepararTela(string titulo = "Sistema padrão")
     {
         Console.ForegroundColor = corTexto;
         Console.BackgroundColor = corFundo;
         Console.Clear();
         this.desenharMoldura(0, 0, this.largura, this.altura);
         this.desenharMoldura(0, 0, this.largura, 2);
+        this.desenharMoldura(0, this.largura-2, this.largura, this.altura);
         this.centralizar(titulo, 1, 0, this.largura);
     }
 
@@ -59,6 +60,13 @@ public class Tela
         Console.Write(texto);
     }
 
+    public Tela(){
+        this.largura = 100;
+        this.altura = 0;
+        this.corFundo = ConsoleColor.Cyan;
+        this.corTexto = ConsoleColor.Green;
+    }
+
 
     public string mostrarMenu(List<string> opcoes, int colIni, int linIni)
     {
@@ -67,7 +75,7 @@ public class Tela
         // procura pela maior largura entre as opções do menu
         int largura = 0;
         foreach (string opcao in opcoes)
-        {
+        {   
             if (opcao.Length > largura)
             {
                 largura = opcao.Length;
@@ -79,6 +87,7 @@ public class Tela
         int linFin = linIni + opcoes.Count + 2;
         this.desenharMoldura(colIni, linIni, colFin, linFin);
 
+        
         // mostra as opções do menu
         colIni++;
         linIni++;

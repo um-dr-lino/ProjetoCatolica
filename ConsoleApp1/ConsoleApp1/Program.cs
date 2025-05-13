@@ -6,6 +6,7 @@ opcoes.Add("4 - Registrar Devolução");
 opcoes.Add("0 - Sair");
 
 Tela tela = new Tela(80, 25, ConsoleColor.Black, ConsoleColor.Yellow);
+ClienteCRUD clienteCRUD = new ClienteCRUD();
 string opcao;
 
 while (true)
@@ -15,7 +16,7 @@ while (true)
     switch (opcao)
     {
         case "1":
-            Console.WriteLine("Manter Clientes");
+            clienteCRUD.executarCRUD();
             break;
         case "2":
             Console.WriteLine("Manter Temas");
