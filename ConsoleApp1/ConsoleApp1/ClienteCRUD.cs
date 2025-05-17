@@ -60,9 +60,7 @@ public class ClienteCRUD{
             if(resp.ToLower() == "s"){
             //        4.3.3.1 - realizar a inclusao do novo cliente  
             this.listaClientes.Add(this.cliente);
-            }
-
-            
+            }            
             
             }
         }else{
