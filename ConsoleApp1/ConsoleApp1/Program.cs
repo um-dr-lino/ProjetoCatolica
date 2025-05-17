@@ -5,8 +5,9 @@ opcoes.Add("3 - Registrar Aluguel");
 opcoes.Add("4 - Registrar Devolução");
 opcoes.Add("0 - Sair");
 
-Tela tela = new Tela(80, 25, ConsoleColor.Black, ConsoleColor.Yellow);
-ClienteCRUD clienteCRUD = new ClienteCRUD();
+Tela tela = new Tela(80, 25, ConsoleColor.Black, ConsoleColor.White);
+ClienteCRUD clienteCRUD= new ClienteCRUD();
+//Tela tela = new Tela(); para chamar o default que foi criado em tela
 string opcao;
 
 while (true)
@@ -35,6 +36,6 @@ while (true)
             break;
     }
 
-    Console.WriteLine("Pressione qualquer tecla para continuar...");
+    tela.centralizar("Pressione qualquer tecla para continuar...",24,0,80);
     Console.ReadKey();
 }

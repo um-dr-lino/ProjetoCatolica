@@ -13,22 +13,40 @@ public class Tela
         this.corFundo = fundo;
         this.corTexto = texto;
     }
+    public Tela()
+    {
+        this.largura=70;
+        this.altura=20;
+        this.corFundo=ConsoleColor.Cyan;
+        this.corTexto=ConsoleColor.Black;
+    }
 
 
-    public void prepararTela(string titulo = "Sistema padrão")
+    public void prepararTela(string titulo = "")
     {
         Console.ForegroundColor = corTexto;
         Console.BackgroundColor = corFundo;
         Console.Clear();
         this.desenharMoldura(0, 0, this.largura, this.altura);
         this.desenharMoldura(0, 0, this.largura, 2);
-        this.desenharMoldura(0, this.largura-2, this.largura, this.altura);
+        this.desenharMoldura(0,this.altura-2,this.largura,this.altura); // desenhar o rodape tenho que acabar o codigo
         this.centralizar(titulo, 1, 0, this.largura);
     }
 
+    public void limparArea(int ci, int li, int cf, int lf){
+        for (int x = ci; x<= cf; x++){
+            for(int y = li; y<= lf; y++){
+                Console.SetCursorPosition(x,y);
+                Console.Write(" ");
+            }
+        }
+    }
 
     public void desenharMoldura(int colIni, int linIni, int colFin, int linFin)
     {
+
+        //limpar a area da moldura
+        this.limparArea(colIni, linIni, colFin, linFin);
         // linhas horizontais
         for (int x = colIni; x <= colFin; x++)
         {
@@ -60,13 +78,6 @@ public class Tela
         Console.Write(texto);
     }
 
-    public Tela(){
-        this.largura = 100;
-        this.altura = 0;
-        this.corFundo = ConsoleColor.Cyan;
-        this.corTexto = ConsoleColor.Green;
-    }
-
 
     public string mostrarMenu(List<string> opcoes, int colIni, int linIni)
     {
@@ -75,7 +86,7 @@ public class Tela
         // procura pela maior largura entre as opções do menu
         int largura = 0;
         foreach (string opcao in opcoes)
-        {   
+        {
             if (opcao.Length > largura)
             {
                 largura = opcao.Length;
@@ -87,7 +98,6 @@ public class Tela
         int linFin = linIni + opcoes.Count + 2;
         this.desenharMoldura(colIni, linIni, colFin, linFin);
 
-        
         // mostra as opções do menu
         colIni++;
         linIni++;

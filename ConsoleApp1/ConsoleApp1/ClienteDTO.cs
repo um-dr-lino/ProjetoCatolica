@@ -1,6 +1,5 @@
-public class ClienteDTO
-{
-    //atributos
+public class ClienteDTO{
+    // atributos
     private int codigo;
     private string nome;
     private string email;
@@ -11,19 +10,19 @@ public class ClienteDTO
     public string Email { get => email; set => email = value; }
     public string Telefone { get => telefone; set => telefone = value; }
 
-        public ClienteDTO(int codigo, string nome, string email, string telefone)
+    public ClienteDTO(int codigo, string nome, string email, string telefone)
     {
-        this.codigo = codigo;
-        this.nome = nome;
-        this.email = email;
-        this.telefone = telefone;
+        Codigo = codigo;
+        Nome = nome;
+        Email = email;
+        Telefone = telefone;
     }
+    public ClienteDTO()
+    {
+        Codigo=0;
+        Nome="";
+        Email="";
+        Telefone="";
 
-    public ClienteDTO(){
-        Codigo = 0;
-        Nome = "";
-        Email = "";
-        Telefone = "";
     }
-
 }
