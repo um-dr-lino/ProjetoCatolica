@@ -73,6 +73,7 @@ public class Tela
 
     public void centralizar(string texto, int lin, int colIni, int colFin)
     {
+        this.limparArea(colIni+1, lin, colFin-1, lin);
         int colTexto = ((colFin - colIni - texto.Length) / 2) + colIni;
         Console.SetCursorPosition(colTexto, lin);
         Console.Write(texto);
