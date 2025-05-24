@@ -13,96 +13,81 @@ public class ClienteCRUD{
         this.tela = new Tela();
     }
     public void executarCRUD(){
-        //1-montar a tela do CRUD
-        this.montarTelaCliente(10, 5);
-        //prepara um registro em branco de cliente
-        this.cliente = new ClienteDTO();
-        // 2-Perguntar ao usuario a chave do cliente
-        this.entrarDados(1);
-        //3-procurar pela chave no "Banco de dados"(listaClientes)
-        bool achou = this.buscarCodigo();
-        // 4-Se nao achou a chave no banco de dados
-        if (!achou)
-        {
-            //4.1 - informar que nao achou
-            this.tela.centralizar("Cliente nao encontrado. deseja cadastrar (S/N): ", 24, 0, 80);
-            //4.2 - Perguntar se deseja cadastrar
-            string resp = Console.ReadLine();
-            //4.3 - se o usuario informar que deseja cadastrar
-            if (resp.ToLower() == "s")
+        while(true){
+            //1-montar a tela do CRUD
+            this.montarTelaCliente(10, 5);
+            //prepara um registro em branco de cliente
+            this.cliente = new ClienteDTO();
+            // 2-Perguntar ao usuario a chave do cliente
+            this.tela.centralizar("Deixe o campo em branco para sair ",24,0,80);
+            this.entrarDados(1);
+            if(this.cliente.Codigo == 0) break;
+            //3-procurar pela chave no "Banco de dados"(listaClientes)
+            bool achou = this.buscarCodigo();
+            // 4-Se nao achou a chave no banco de dados
+            if (!achou)
             {
-                //4.3.1 - perguntar os dados restantes ao usuario
-                this.entrarDados(2);
-                //4.3.2 - perguntar se o usuario confirma o cadastro.
-                this.tela.centralizar("Confirma cadastro(S/N)",24,0,80);
-                resp = Console.ReadLine();
-                //4.3.3 - se o usuario confirmar
+                //4.1 - informar que nao achou
+                this.tela.centralizar("Cliente nao encontrado. deseja cadastrar (S/N): ", 24, 0, 80);
+                //4.2 - Perguntar se deseja cadastrar
+                string resp = Console.ReadLine();
+                //4.3 - se o usuario informar que deseja cadastrar
                 if (resp.ToLower() == "s")
                 {
-                    //4.3.3.1 - realizar a inclusao do novo cliente
-                    this.incluirRegistro();
+                    //4.3.1 - perguntar os dados restantes ao usuario
+                    this.entrarDados(2);
+                    //4.3.2 - perguntar se o usuario confirma o cadastro.
+                    this.tela.centralizar("Confirma cadastro(S/N)",24,0,80);
+                    resp = Console.ReadLine();
+                    //4.3.3 - se o usuario confirmar
+                    if (resp.ToLower() == "s")
+                    {
+                        //4.3.3.1 - realizar a inclusao do novo cliente
+                        this.incluirRegistro();
+                    }
+                
+    
                 }
-               
- 
             }
-        }
-        //5-se achou a chave no bando de dados
-        else
-        {
-        //  5.1 - mostrar os dados na tela
-        this.mostrarDados();
+            //5-se achou a chave no bando de dados
+            else
+            {
+            //  5.1 - mostrar os dados na tela
+            this.mostrarDados();
 
-        // 5.2 - perguntar ao usuario se deseja voltar,alterar ou excluir
-        this.tela.centralizar("Deseja Voltar/Alterar/Excluir (V/A/E)",24,0,80);
-        string resp = Console.ReadLine();
+            // 5.2 - perguntar ao usuario se deseja voltar,alterar ou excluir
+            this.tela.centralizar("Deseja Voltar/Alterar/Excluir (V/A/E)",24,0,80);
+            string resp = Console.ReadLine();
 
-        // 5.3 - se o usuario informou que deseja alterar
-        if (resp.ToLower() == "a"){
-            this.tela.centralizar("Digite apenas o dado que deseja alterar",24,0,80);
-            // 5.3.1 - pergunta os novos dados para o usuario
-            this.entrarDados(2);
-            // 5.3.2 - pergunta se o usuario confirma a alteracao
-            this.tela.centralizar("Confirma alteracao(s/n)",24,0,80);
+            // 5.3 - se o usuario informou que deseja alterar
+            if (resp.ToLower() == "a"){
+                this.tela.centralizar("Digite apenas o dado que deseja alterar",24,0,80);
+                // 5.3.1 - pergunta os novos dados para o usuario
+                this.entrarDados(2);
+                // 5.3.2 - pergunta se o usuario confirma a alteracao
+                this.tela.centralizar("Confirma alteracao(s/n)",24,0,80);
+                resp = Console.ReadLine();
+                // 5.3.3 - se o usuario confirmou a alteracao
+                if (resp.ToLower()=="s"){
+                    // 5.3.3.1 - gravar a alteracao dos dados do cliente
+                    this.alterarRegistro();
+                }
+            }
+            // 5.4 - se o usuario informou que deseja excluir
+            if (resp.ToLower() == "e"){
+            // 5.4.1 - pergunta se o usuario confirma a exclusao
+            this.tela.centralizar("Confirma exclusao(s/n)",24,0,80);
             resp = Console.ReadLine();
-            // 5.3.3 - se o usuario confirmou a alteracao
-            if (resp.ToLower()=="s"){
-                // 5.3.3.1 - gravar a alteracao dos dados do cliente
-                this.alterarRegistro();
+            // 5.4.2 - se o usuario confirmou a exclusao
+                if(resp.ToLower()=="s"){
+                //   5.4.2.1 - excluir cliente
+                    this.excluirRegistro();
+                    }
+                }
             }
         }
-        // 5.4 - se o usuario informou que deseja excluir
-        if (resp.ToLower() == "e"){
-        // 5.4.1 - pergunta se o usuario confirma a exclusao
-        this.tela.centralizar("Confirma exclusao(s/n)",24,0,80);
-        resp = Console.ReadLine();
-        // 5.4.2 - se o usuario confirmou a exclusao
-            if(resp.ToLower()=="s"){
-            //   5.4.2.1 - excluir cliente
-            this.excluirRegistro();
-            }
-        }
-
-        }
-
-        /*
-            Uma logica possivel para o CRUD
-            ------------------------------
-       
-                5.1 - mostrar os dados na tela
-                5.2 - perguntar ao usuario se deseja voltar,alterar ou excluir
-                5.3 - se o usuario informou que deseja alterar
-                    5.3.1 - pergunta os novos dados para o usuario
-                    5.3.2 - pergunta se o usuario confirma a alteracao
-                    5.3.3 - se o usuario confirmou a alteracao
-                        5.3.3.1 - gravar a alteracao dos dados do cliente
-                5.4 - se o usuario informou que deseja excluir
-                    5.4.1 - pergunta se o usuario confirma a exclusao
-                    5.4.2 - se o usuario confirmou a exclusao
-                        5.4.2.1 - excluir cliente
-        */
-        Console.ReadKey();
     }
- 
+
     private bool buscarCodigo()
     {
         bool encontrei = false;
@@ -158,7 +143,9 @@ public class ClienteCRUD{
         if (qual == 1)
         {
             Console.SetCursorPosition(colCodigo, linCodigo);
-            this.cliente.Codigo = int.Parse(Console.ReadLine());
+            string codigo = Console.ReadLine();
+            if (codigo.Length > 0) this.cliente.Codigo = int.Parse(codigo);
+            // this.cliente.Codigo = int.Parse(Console.ReadLine());
         }
         //entrada de dados do registro
         if (qual == 2)

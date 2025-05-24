@@ -35,8 +35,5 @@ while (true)
             Console.WriteLine("Opção inválida!");
             break;
     }
-
-    tela.centralizar("Pressione qualquer tecla para continuar...",24,0,80);
-    Console.ReadKey();
 }
     
