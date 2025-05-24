@@ -3,17 +3,16 @@ using System.Security.AccessControl;
 public class ClienteCRUD{
     //atributos
     private List<ClienteDTO> listaClientes;//banco de dados
-    private ClienteDTO cliente;             // "cliente da vez"
+    private ClienteDTO cliente;             
     private Tela tela;
-    private int linCodigo, colCodigo,posicao;
+    private int linCodigo, colCodigo, posicao;
  
     public ClienteCRUD()
     {
         this.listaClientes = new List<ClienteDTO>();
         this.tela = new Tela();
     }
-    public void executarCRUD()
-    {
+    public void executarCRUD(){
         //1-montar a tela do CRUD
         this.montarTelaCliente(10, 5);
         //prepara um registro em branco de cliente
@@ -41,7 +40,7 @@ public class ClienteCRUD{
                 if (resp.ToLower() == "s")
                 {
                     //4.3.3.1 - realizar a inclusao do novo cliente
-                    this.listaClientes.Add(this.cliente);
+                    this.incluirRegistro();
                 }
                
  
@@ -50,9 +49,41 @@ public class ClienteCRUD{
         //5-se achou a chave no bando de dados
         else
         {
- 
+        //  5.1 - mostrar os dados na tela
+        this.mostrarDados();
+
+        // 5.2 - perguntar ao usuario se deseja voltar,alterar ou excluir
+        this.tela.centralizar("Deseja Voltar/Alterar/Excluir (V/A/E)",24,0,80);
+        string resp = Console.ReadLine();
+
+        // 5.3 - se o usuario informou que deseja alterar
+        if (resp.ToLower() == "a"){
+            this.tela.centralizar("Digite apenas o dado que deseja alterar",24,0,80);
+            // 5.3.1 - pergunta os novos dados para o usuario
+            this.entrarDados(2);
+            // 5.3.2 - pergunta se o usuario confirma a alteracao
+            this.tela.centralizar("Confirma alteracao(s/n)",24,0,80);
+            resp = Console.ReadLine();
+            // 5.3.3 - se o usuario confirmou a alteracao
+            if (resp.ToLower()=="s"){
+                // 5.3.3.1 - gravar a alteracao dos dados do cliente
+                this.alterarRegistro();
+            }
         }
-       
+        // 5.4 - se o usuario informou que deseja excluir
+        if (resp.ToLower() == "e"){
+        // 5.4.1 - pergunta se o usuario confirma a exclusao
+        this.tela.centralizar("Confirma exclusao(s/n)",24,0,80);
+        resp = Console.ReadLine();
+        // 5.4.2 - se o usuario confirmou a exclusao
+            if(resp.ToLower()=="s"){
+            //   5.4.2.1 - excluir cliente
+            this.excluirRegistro();
+            }
+        }
+
+        }
+
         /*
             Uma logica possivel para o CRUD
             ------------------------------
@@ -87,6 +118,40 @@ public class ClienteCRUD{
         }
         return encontrei;
     }
+
+    private void alterarRegistro(){
+        if (this.cliente.Nome != ""){
+            this.listaClientes[this.posicao].Nome = this.cliente.Nome;
+        }
+        if (this.cliente.Email != ""){
+            this.listaClientes[this.posicao].Email = this.cliente.Email;
+        }
+        if (this.cliente.Telefone != ""){
+            this.listaClientes[this.posicao].Telefone = this.cliente.Telefone; 
+            }
+    }
+
+    private void excluirRegistro(){
+            this.listaClientes.RemoveAt(this.posicao);
+        
+    }
+
+    private void incluirRegistro(){
+        this.listaClientes.Add(this.cliente);
+    }
+
+    private void mostrarDados(){
+
+        Console.SetCursorPosition(colCodigo, linCodigo + 1);
+        Console.Write(this.listaClientes[this.posicao].Nome);
+
+        Console.SetCursorPosition(colCodigo, linCodigo + 2);
+        Console.Write(this.listaClientes[this.posicao].Email);
+
+        Console.SetCursorPosition(colCodigo, linCodigo + 3);
+        Console.Write(this.listaClientes[this.posicao].Telefone);
+    }
+
     private void entrarDados(int qual)
     {
         //entrada de codigo(chave primaria / identificador unico)
@@ -98,6 +163,7 @@ public class ClienteCRUD{
         //entrada de dados do registro
         if (qual == 2)
         {
+            this.tela.limparArea(colCodigo, linCodigo+1, colCodigo+18, linCodigo+3);
             Console.SetCursorPosition(colCodigo, linCodigo + 1);
             this.cliente.Nome = Console.ReadLine();
  

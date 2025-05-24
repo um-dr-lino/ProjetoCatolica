@@ -29,7 +29,7 @@ public class Tela
         Console.Clear();
         this.desenharMoldura(0, 0, this.largura, this.altura);
         this.desenharMoldura(0, 0, this.largura, 2);
-        this.desenharMoldura(0,this.altura-2,this.largura,this.altura); // desenhar o rodape tenho que acabar o codigo
+        this.desenharMoldura(0,this.altura-2,this.largura,this.altura); 
         this.centralizar(titulo, 1, 0, this.largura);
     }
 
