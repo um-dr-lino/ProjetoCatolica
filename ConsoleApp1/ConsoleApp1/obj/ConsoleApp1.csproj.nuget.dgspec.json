@@ -1,37 +1,30 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\alysson.lino\\Documents\\Projects\\ConsoleApp1\\ConsoleApp1\\ConsoleApp1.csproj": {}
+    "C:\\Users\\leich\\OneDrive\\Área de Trabalho\\projeto_lino\\ProjetoCatolica\\ConsoleApp1\\ConsoleApp1\\ConsoleApp1.csproj": {}
   },
   "projects": {
-    "c:\\Users\\alysson.lino\\Documents\\Projects\\ConsoleApp1\\ConsoleApp1\\ConsoleApp1.csproj": {
+    "C:\\Users\\leich\\OneDrive\\Área de Trabalho\\projeto_lino\\ProjetoCatolica\\ConsoleApp1\\ConsoleApp1\\ConsoleApp1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\alysson.lino\\Documents\\Projects\\ConsoleApp1\\ConsoleApp1\\ConsoleApp1.csproj",
+        "projectUniqueName": "C:\\Users\\leich\\OneDrive\\Área de Trabalho\\projeto_lino\\ProjetoCatolica\\ConsoleApp1\\ConsoleApp1\\ConsoleApp1.csproj",
         "projectName": "ConsoleApp1",
-        "projectPath": "c:\\Users\\alysson.lino\\Documents\\Projects\\ConsoleApp1\\ConsoleApp1\\ConsoleApp1.csproj",
-        "packagesPath": "C:\\Users\\alysson.lino\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\alysson.lino\\Documents\\Projects\\ConsoleApp1\\ConsoleApp1\\obj\\",
+        "projectPath": "C:\\Users\\leich\\OneDrive\\Área de Trabalho\\projeto_lino\\ProjetoCatolica\\ConsoleApp1\\ConsoleApp1\\ConsoleApp1.csproj",
+        "packagesPath": "C:\\Users\\leich\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\leich\\OneDrive\\Área de Trabalho\\projeto_lino\\ProjetoCatolica\\ConsoleApp1\\ConsoleApp1\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\alysson.lino\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\leich\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
-          "net7.0"
+          "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net7.0": {
-            "targetAlias": "net7.0",
+          "net8.0": {
+            "targetAlias": "net8.0",
             "projectReferences": {}
           }
         },
@@ -39,11 +32,17 @@
           "warnAsError": [
             "NU1605"
           ]
-        }
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
-        "net7.0": {
-          "targetAlias": "net7.0",
+        "net8.0": {
+          "targetAlias": "net8.0",
           "imports": [
             "net461",
             "net462",
@@ -55,12 +54,30 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.16, 8.0.16]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[8.0.16, 8.0.16]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.16, 8.0.16]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[8.0.16, 8.0.16]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.317\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

@@ -1,12 +1,12 @@
 using System.Security.AccessControl;
- 
+
 public class ClienteCRUD{
     //atributos
     private List<ClienteDTO> listaClientes;//banco de dados
-    private ClienteDTO cliente;             
+    private ClienteDTO cliente;
     private Tela tela;
     private int linCodigo, colCodigo, posicao;
- 
+
     public ClienteCRUD()
     {
         this.listaClientes = new List<ClienteDTO>();
@@ -45,8 +45,8 @@ public class ClienteCRUD{
                         //4.3.3.1 - realizar a inclusao do novo cliente
                         this.incluirRegistro();
                     }
-                
-    
+
+
                 }
             }
             //5-se achou a chave no bando de dados
@@ -112,13 +112,13 @@ public class ClienteCRUD{
             this.listaClientes[this.posicao].Email = this.cliente.Email;
         }
         if (this.cliente.Telefone != ""){
-            this.listaClientes[this.posicao].Telefone = this.cliente.Telefone; 
+            this.listaClientes[this.posicao].Telefone = this.cliente.Telefone;
             }
     }
 
     private void excluirRegistro(){
             this.listaClientes.RemoveAt(this.posicao);
-        
+
     }
 
     private void incluirRegistro(){
@@ -153,13 +153,13 @@ public class ClienteCRUD{
             this.tela.limparArea(colCodigo, linCodigo+1, colCodigo+18, linCodigo+3);
             Console.SetCursorPosition(colCodigo, linCodigo + 1);
             this.cliente.Nome = Console.ReadLine();
- 
+
             Console.SetCursorPosition(colCodigo, linCodigo + 2);
             this.cliente.Email = Console.ReadLine();
- 
+
             Console.SetCursorPosition(colCodigo, linCodigo + 3);
             this.cliente.Telefone = Console.ReadLine();
- 
+
         }
     }
         private void montarTelaCliente(int coluna, int linha)
@@ -170,17 +170,17 @@ public class ClienteCRUD{
         cadCliente.Add("Nome      :");
         cadCliente.Add("Email     :");
         cadCliente.Add("Telefone  :");
- 
- 
+
+
         this.tela.desenharMoldura(coluna, linha, coluna2, linha + 6);
         linha++;
         this.tela.centralizar("Cadastro de Cliente", linha, coluna, coluna2);
         coluna++;
         linha++;
- 
+
         this.colCodigo = coluna + cadCliente[0].Length;
         this.linCodigo = linha;
- 
+
         for (int i = 0; i < cadCliente.Count; i++)
         {
             Console.SetCursorPosition(coluna, linha);
@@ -188,5 +188,5 @@ public class ClienteCRUD{
             linha++;
         }
     }
- 
+
 }
