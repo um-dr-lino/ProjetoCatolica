@@ -6,8 +6,8 @@ opcoes.Add("4 - Registrar Devolução");
 opcoes.Add("0 - Sair");
 
 Tela tela = new Tela(80, 25, ConsoleColor.Black, ConsoleColor.White);
-ClienteCRUD clienteCRUD = new ClienteCRUD();
-TemaCRUD temaCrud = new TemaCRUD();
+ClienteCRUD clienteCRUD= new ClienteCRUD();
+TemaCRUD temaCRUD = new TemaCRUD();
 //Tela tela = new Tela(); para chamar o default que foi criado em tela
 string opcao;
 
@@ -21,9 +21,8 @@ while (true)
             clienteCRUD.executarCRUD();
             break;
         case "2":
+            temaCRUD.executarCRUDTema();
             // Console.WriteLine("Manter Temas");
-			temaCrud.executarCRUDTema();
-			Console.ReadKey();
             break;
         case "3":
             Console.WriteLine("Registrar Aluguel");
@@ -39,3 +38,4 @@ while (true)
             break;
     }
 }
+    
