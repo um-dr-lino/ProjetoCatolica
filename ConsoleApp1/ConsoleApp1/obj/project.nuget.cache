@@ -1,13 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "0Kfp6HXMHWs=",
+  "dgSpecHash": "2uugiHx/9K1n30c8SKDeKj8SWFGkG/wZr3+Zay1p6GwwFJwsAUjVoZauhAPWYt9R8KrrdxoM4bqOw5XBZR5+Rw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\leich\\OneDrive\\Área de Trabalho\\projeto_lino\\ProjetoCatolica\\ConsoleApp1\\ConsoleApp1\\ConsoleApp1.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\leich\\.nuget\\packages\\microsoft.netcore.app.ref\\8.0.16\\microsoft.netcore.app.ref.8.0.16.nupkg.sha512",
-    "C:\\Users\\leich\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\8.0.16\\microsoft.windowsdesktop.app.ref.8.0.16.nupkg.sha512",
-    "C:\\Users\\leich\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\8.0.16\\microsoft.aspnetcore.app.ref.8.0.16.nupkg.sha512",
-    "C:\\Users\\leich\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\8.0.16\\microsoft.netcore.app.host.win-x64.8.0.16.nupkg.sha512"
-  ],
+  "projectFilePath": "c:\\Users\\alysson.lino\\Documents\\Projects\\ConsoleApp1\\ConsoleApp1\\ConsoleApp1.csproj",
+  "expectedPackageFiles": [],
   "logs": []
 }

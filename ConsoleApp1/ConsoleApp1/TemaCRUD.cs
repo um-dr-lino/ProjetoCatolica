@@ -16,7 +16,7 @@ public class TemaCRUD
 
 	public void executarCRUDTema()
 	{
-		this.montarTelaCliente(20, 5);
+		this.montarTelaCliente(30, 10);
 	}
 
 	private void montarTelaCliente(int coluna, int linha)
@@ -29,7 +29,7 @@ public class TemaCRUD
 		cadTema.Add("Cor		:");
 		cadTema.Add("Tema		:");
 
-		this.tela.desenharMoldura(coluna, linha, coluna2, linha + 6);
+		this.tela.desenharMoldura(coluna, linha, coluna2, linha + 7);
 		linha++;
 		this.tela.centralizar("Cadastro de Tema", linha, coluna, coluna2);
 		coluna++;
